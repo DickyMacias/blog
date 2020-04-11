@@ -4,6 +4,8 @@ class ArticlesController < ApplicationController
   # puede usarse para llamar las acciones repetitivas al iniciar
   # puede hacerse con only para definir cuales, o con except para quitar
   before_action :find_article, except: %i[new create index]
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
+
   # existe after_action para despues de ejecutar el codigo.
 
   def index
