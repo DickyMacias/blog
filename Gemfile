@@ -57,5 +57,4 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Extra Plugins
 gem 'rubocop', group: :development
-gem 'rubymon', '~> 0.1.1', group: :development
 gem 'solargraph', group: :development
