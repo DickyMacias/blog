@@ -1,3 +1,5 @@
-<h1>Hola <%= current_user.email %></h1>
-
-<%=link_to  "Inicio", root_path %>
+<div class='large-container center-block'>
+  <h3>Hola <%= current_user.email %></h3>
+  <p>Estos son tus articulos recientes</p>
+  <%= render current_user.articles %>
+</div>

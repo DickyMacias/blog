@@ -13,7 +13,7 @@ class Article < ApplicationRecord
     # categories_array = category_elements.split(',')
     # iterar []
     if category_elements.nil? || category_elements.empty?
-      return has categories.destroy_all
+      return has_categories.destroy_all
     end
 
     has_categories.where.not(category_id: category_elements).destroy_all

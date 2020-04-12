@@ -1,11 +1,11 @@
 <div class='large-container center-block'>
 
   <h1><%=@article.title%></h1>
-  <div>
-    <p>Escrito por: <strong><%= link_to @article.user.email, 'user/' + @article.user.id.to_s %></strong></p>
-    <% if current_user.avatar.attached? %>
-    <%= image_tag url_for(current_user.avatar), height:30 %>
+  <div class="row center-block">
+    <% if @article.user.avatar.attached? %>
+    <%= image_tag url_for( @article.user.avatar ), height:30 %>
     <%end%>
+    <p>Escrito por: <strong><%= link_to @article.user.email, 'user/' + @article.user.id.to_s %></strong></p>
   </div>
 
   <div>
