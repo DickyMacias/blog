@@ -12,6 +12,12 @@ class Article < ApplicationRecord
     # convertirlo en []
     # categories_array = category_elements.split(',')
     # iterar []
+    if category_elements.nil? || category_elements.empty?
+      return has categories.destroy_all
+    end
+
+    has_categories.where.not(category_id: category_elements).destroy_all
+
     category_elements.each do |category_id|
       # crear HasCategory HasCategory<article_id: 1, category_id: 1
       # unless HasCategory.where(article: self,category_id: category_id).any?
