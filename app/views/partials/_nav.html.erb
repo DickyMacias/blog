@@ -10,6 +10,9 @@
     <%= link_to  "Escribir", new_article_path, class:'nav-link' %>
   </li>
   <li class='nav-item'>
+    <%= link_to  "Mi Perfil", perfil_path, class:'nav-link' %>
+  </li>
+  <li class='nav-item'>
     <%= link_to  "Cerrar Sesión", destroy_user_session_path, method: :delete, class:'nav-link' %>
   </li>
   <%else%>
