@@ -3,7 +3,7 @@
 class ArticlesController < ApplicationController
   # puede usarse para llamar las acciones repetitivas al iniciar
   # puede hacerse con only para definir cuales, o con except para quitar
-  before_action :find_article, except: %i[new create index]
+  before_action :find_article, except: %i[new create index from_author]
   before_action :authenticate_user!, only: %i[new create edit update destroy]
 
   # existe after_action para despues de ejecutar el codigo.
@@ -26,13 +26,25 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create(title: params[:article][:title], content: params[:article][:content])
-    render json: @article
+    @article = current_user.articles.create(title: params[:article][:title],
+                                            content: params[:article][:content])
+    redirect_to @article
   end
+
+  # def create
+  #   @article = Article.create(title: params[:article][:title],
+  #                             content: params[:article][:content],
+  #                             user: current_user)
+  #   render json: @article
+  # end
 
   def destroy
     @article.destroy
     redirect_to root_path
+  end
+
+  def from_author
+    @user = User.find(params[:user_id])
   end
 
   def find_article
