@@ -2,7 +2,7 @@
 
   <h1><%=@article.title%></h1>
   <div>
-    <p>Escrito por: <strong><%=@article.user.email%></strong></p>
+    <p>Escrito por: <strong><%= link_to @article.user.email, 'user/' + @article.user.id.to_s %></strong></p>
   </div>
 
   <div>
